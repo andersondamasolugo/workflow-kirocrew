@@ -7,6 +7,8 @@ session_key: dashboard:chat-23-1793321545
 created_at: 2026-10-30T12:53:30+00:00
 ---
 
+> **Plataforma:** el síntoma A es exclusivo de macOS. En Windows y Linux no aplica; el síntoma B (permisos del token) es idéntico en cualquier sistema. En Windows reemplazá `curl` por `curl.exe` y `export VAR=...` por `$env:VAR="..."`.
+
 ## When to use
 Running `sonar-scanner` CLI locally on macOS and it fails before uploading, OR it connects but is rejected at `Create analysis`. Two distinct failure classes get confused; this separates them.
 

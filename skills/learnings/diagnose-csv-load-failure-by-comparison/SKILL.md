@@ -25,7 +25,7 @@ A delimited file (CSV/semicolon/pipe) fails to import while a similar file loads
 - Root fix: make the backend parser respect RFC-4180 quoting so quoted fields are not split on the inner delimiter — this prevents all future files with the same pattern from failing.
 
 ## Gotchas
-- macOS `cat` has no `-A`; use `cat -v` plus `hexdump -C`.
+- macOS `cat` has no `-A`; use `cat -v` plus `hexdump -C`. In Windows PowerShell use `Format-Hex <file>` to see the bytes and `Get-Content -Raw <file> | Select-String "`r`n"` to check CRLF.
 - `wc -l` counts newline bytes, so CR-only or missing-terminator files mislead it; trust the delimiter-count-per-row check over line counts.
 - Do not blame encoding/CRLF first — if BOTH files have it, it is not the differentiator. The field-count anomaly is the real signal.
 - Only change the minimum needed; a corrected copy unblocks now but the parser fix is the durable root cause.

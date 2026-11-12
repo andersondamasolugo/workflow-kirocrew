@@ -7,6 +7,16 @@ y este proyecto adhiere a [Versionamiento Semántico](https://semver.org/lang/es
 
 ## [No publicado]
 
+## [0.0.3] - 2026-11-12
+
+### Agregado
+- Se agregaron los scripts portables `read_secret.py` y `jira_read.py` para leer secretos y issues de Jira sin depender del llavero de macOS.
+- Se agregaron secciones de equivalentes para Windows en los aprendizajes de Jira, Sonar local, E2E con playwright-cli y Oracle MCP.
+
+### Cambiado
+- El MCP de Jira de `dev-po` usa `uvx` del PATH en lugar de una ruta fija de Homebrew.
+- Se aclaró que el fallo `posix_spawn` del scanner de Sonar es exclusivo de macOS.
+
 ## [0.0.2] - 2026-11-12
 
 ### Agregado

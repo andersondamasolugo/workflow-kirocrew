@@ -67,4 +67,5 @@ python dev-flows\scripts\sonar_local_gate.py C:\ruta\al\repo --base origin/devel
 - **Rutas largas:** si `git` o `gradlew` fallan por rutas largas, activá `git config --global core.longpaths true`.
 - **Fin de línea:** `git config --global core.autocrlf true` evita diferencias falsas en el diff.
 - **Scratch:** Kiro Crew guarda el espacio temporal en `C:` por defecto y puede crecer; se puede mover con `KIROCREW_SCRATCH_ROOT` (solo Windows).
-- **Aprendizajes con comandos macOS:** algunas skills de `skills/learnings/` (por ejemplo las de llavero, `security find-generic-password` o `/Applications/...`) describen el procedimiento en macOS. Usá la tabla de arriba para el equivalente.
+- **Aprendizajes con comandos macOS:** las skills de `skills/learnings/` que usaban llavero, `chmod`/`xattr` o rutas de macOS ahora llevan una sección "Equivalentes en Windows" (Jira, Sonar local, E2E con playwright-cli, Oracle MCP). Siguen sin verificarse en una máquina Windows real.
+- **Scripts portables:** `dev-flows/scripts/read_secret.py` (lee un secreto de la variable de entorno o del almacén del sistema) y `dev-flows/scripts/jira_read.py` (lee issues de Jira por REST con `JIRA_SITE`, `JIRA_EMAIL` y `JIRA_API_TOKEN`) funcionan igual en Windows, macOS y Linux.

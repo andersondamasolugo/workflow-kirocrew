@@ -78,3 +78,6 @@ triggers: sonar local, sonarqube local, sonar-scanner, sonar-gate, sonar-setup, 
 Aproximación, no el gate real: el perfil local es "Sonar way", no el de la organización
 `segurosbolivar`; SonarCloud puede tener exclusiones de servidor que no están en el repo; el
 New Code local difiere. El gate definitivo es SonarCloud en el CI del PR.
+
+## Windows
+La tabla "Qué existe" y los atajos zsh son los de macOS. En Windows usá `docs/06-windows.md`: el token va en la variable de usuario `SONAR_TOKEN` (no hay llavero), Docker Desktop reemplaza la ruta `/Applications/...`, el scanner se descomprime en `%USERPROFILE%\tools` o va en el `PATH`, y los scripts se invocan con `python` (`python dev-flows\scripts\sonar_local_gate.py <repo> --base origin/develop`). El troubleshooting de `posix_spawn` y `chmod` es solo de macOS.

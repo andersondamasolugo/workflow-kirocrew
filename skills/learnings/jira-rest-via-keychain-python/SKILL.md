@@ -27,3 +27,18 @@ When you need to read Jira issues, epics, or run JQL searches on a Mac where the
 - Validate with `myself` before batch reads so an auth failure surfaces immediately instead of mid-loop.
 - URL-encode the entire JQL string.
 - Email and site are environment-specific — parameterize them, don't assume.
+
+## Multiplataforma (macOS / Windows / Linux)
+El procedimiento no depende de macOS: solo cambia dónde vive el token.
+
+| Sistema | Dónde guardar el token | Cómo se lee |
+|---------|------------------------|-------------|
+| macOS | Llavero (`jira-api-token`) | `security find-generic-password -s jira-api-token -w` |
+| Windows | Variable de entorno de usuario `JIRA_API_TOKEN` | `os.environ` / `$env:JIRA_API_TOKEN` |
+| Linux | Secret Service (`secret-tool`) o `JIRA_API_TOKEN` | `secret-tool lookup service jira-api-token` |
+
+El kit trae los dos pasos ya resueltos y portables:
+- `dev-flows/scripts/read_secret.py <servicio> <VARIABLE>`: busca primero la variable de entorno y luego el almacén del sistema.
+- `dev-flows/scripts/jira_read.py GD929-1234` (o `--jql "..."`): valida `myself`, trae el issue y aplana el ADF. Requiere `JIRA_SITE` (por ejemplo `miempresa.atlassian.net`) y `JIRA_EMAIL`. Usa solo la librería estándar de Python.
+
+En Windows, usá `python` en lugar de `python3` y definí las variables con `[Environment]::SetEnvironmentVariable("JIRA_API_TOKEN", <valor>, "User")` desde tu propia terminal (nunca en el chat); reiniciá Kiro Crew para que la herede.

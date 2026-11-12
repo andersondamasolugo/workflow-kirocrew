@@ -62,7 +62,7 @@ dueño haga el `git commit`.
    `python3 ~/.kiro/crew/dev-flows/scripts/sonar_local_gate.py <repo> --base origin/<rama-base>`
    - Requisitos: contenedor `sonarqube` arriba (`localhost:9000`), `sonar-local.properties` en la
      raíz del repo (copia de `sonar-project.properties` con host/projectKey locales, excluido vía
-     `.git/info/exclude`, NUNCA commiteado) y token en el Keychain `sonar-local-token`.
+     `.git/info/exclude`, NUNCA commiteado) y token en el Keychain `sonar-local-token` (macOS) o en la variable `SONAR_TOKEN` (Windows).
    - Evalúa las LÍNEAS CAMBIADAS como el New Code de SonarCloud. `SONAR-LOCAL: BLOCKED` si en
      código nuevo hay: cualquier BUG o VULNERABILITY (tumba Reliability/Security A), cualquier
      issue BLOCKER/CRITICAL o impacto HIGH/BLOCKER (complejidad S3776, accesibilidad S1082/S6827),

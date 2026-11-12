@@ -27,3 +27,19 @@ When you need a local SonarQube (Community, Docker) to reproduce a repo's SonarC
 - **Stray local `dist/`/`coverage/`** that a clean CI checkout lacks inflate duplication (e.g. `dist/common-lib` duplicating `projects/common-lib`) — exclude them locally.
 - **Config is not in git on purpose**, so a fresh clone / worktree / `git clean -fdx` wipes it. Regenerate it with a setup script rather than by hand; keep project keys stable so you don't spawn duplicate projects on the server.
 - **Already-open chat sessions** load skills/steering only at startup — anything created today is invisible to them. Promise reusability only for *new* sessions, and put a short pointer in always-loaded steering (a router row) so new sessions distinguish "sonar local" from SonarCloud.
+
+## Equivalentes en Windows (PowerShell)
+Los pasos de arriba son los de macOS. En Windows:
+
+| Paso | macOS | Windows |
+|------|-------|---------|
+| Preflight | `which docker sonar-scanner`, `uname -m` | `Get-Command docker, sonar-scanner`, `$env:PROCESSOR_ARCHITECTURE` |
+| Readiness del servidor | `curl -s http://localhost:9000/api/system/status` | `curl.exe -s http://localhost:9000/api/system/status` (con `.exe`, porque `curl` en PowerShell 5 es un alias de `Invoke-WebRequest`) |
+| Instalar el scanner | zip + `chmod +x bin/* jre/bin/*` + `xattr -dr com.apple.quarantine .` | Descomprimir el zip de Windows en `%USERPROFILE%\tools\` y agregar `bin` al `PATH`. No hay `chmod` ni cuarentena; si Windows bloquea los archivos descargados, `Get-ChildItem -Recurse | Unblock-File` |
+| Excluir de git | `.git/info/exclude` | Igual (`.git\info\exclude`) |
+| Token (`squ_`) | Llavero con `security add-generic-password` | Variable de usuario `SONAR_TOKEN` (el script `sonar_local_gate.py` la lee primero) |
+| Java 17 | `JAVA_HOME` con `java_home -v 17` | Temurin 17 y `JAVA_HOME` apuntando a su carpeta |
+
+- El fallo `posix_spawn failed` / `Cannot run program "security"` es **exclusivo de macOS** (el JRE embebido no puede lanzar el binario `security` del llavero). En Windows no aplica; si el scanner falla por otra razón, ver `docs/06-windows.md`.
+- El gotcha de zsh con comentarios `#` inline no aplica en PowerShell, pero sigue siendo buena práctica un comando por línea.
+- Sin verificar en una máquina Windows real: si algo falla, el flujo de reporte de `AGENTS.md` abre un issue.

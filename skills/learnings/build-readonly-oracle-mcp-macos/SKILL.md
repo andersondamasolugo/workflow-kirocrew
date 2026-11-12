@@ -28,3 +28,11 @@ Crear un MCP server (o cualquier cliente Python) que conecte a una base Oracle d
 - Advierte al usuario si pego credenciales vivas en el chat (quedan en el transcript); redactalas en tus respuestas y recomienda rotarlas.
 - `file_send` no acepta .zip (solo audio/video/imagen/PDF); si empaquetas el MCP para otro, dejalo en una ruta y avisa. Excluye del zip `.venv`, `__pycache__`, `.pyc`, `.env` y cualquier credencial; documenta en un README que el receptor ajuste la ruta de `command` y corra el `xattr` de Gatekeeper.
 - Antes de armar un SELECT contra una tabla, lee su definicion en el repo de esquema para no adivinar columnas.
+
+## Notas para Windows (sin verificar)
+Este procedimiento se probó solo en macOS Apple Silicon. Si lo vas a repetir en Windows, cambia esto:
+- Conectividad: `Test-NetConnection <host> -Port <puerto>` en lugar de `nc -vz`.
+- Python: `py -3.12 --version` en lugar de buscar `python3.12`. Instalá las dependencias con `py -3.12 -m pip install --target <dir>\libs ...` y definí `PYTHONPATH` en el bloque `env` del MCP.
+- Thick mode: descargá el **Oracle Instant Client para Windows x64** (Basic Light) desde el sitio oficial de Oracle, descomprimilo en una carpeta propia y pasalo a `oracledb.init_oracle_client(lib_dir=...)`. No hay DMG, `hdiutil`, `chmod` ni `xattr`. Requiere el runtime de Visual C++ que indique Oracle para esa versión.
+- Registro del MCP: `command` apunta al ejecutable de Python o a un `.cmd`, no a un `run.sh`.
+- Las reglas de seguridad no cambian: credenciales solo por variables de entorno, guard de solo lectura, y si la conexión falla una vez, parar y avisar para no bloquear la cuenta.
