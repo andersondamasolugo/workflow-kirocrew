@@ -18,7 +18,6 @@ triggers: sonar local, sonarqube local, sonar-scanner, sonar-gate, sonar-setup, 
 | Setup | `~/.kiro/crew/dev-flows/scripts/sonar_local_setup.py <repo>` |
 | Atajos zsh (usuario) | `sonar-setup <repo>`, `sonar-gate <dir> [base=origin/develop]` |
 | Integración | Fase 3b de `flow-security-gate` + regla del hook de calidad pre-commit |
-| Manual Windows | `~/Desktop/manual.md` (versión PowerShell para terceros) |
 
 ## Configs locales (no versionadas)
 

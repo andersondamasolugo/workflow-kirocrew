@@ -186,7 +186,7 @@ Download all dependencies exclusively from the institutional **JFrog** repositor
 ```groovy
 // ✅ Good — Java: JFrog repo + pinned version
 repositories {
-    maven { url "https://jfrog.segurosbolivar.com/artifactory/libs-release" }
+    maven { url "https://<tu-host-jfrog>/artifactory/libs-release" }
 }
 dependencies {
     implementation 'com.segurosbolivar.commons:error-handling:1.2.0'
