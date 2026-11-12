@@ -10,6 +10,7 @@ Si un usuario te pasó el link de este repo y te pidió "configurarte" o "instal
 
 ## 2. Instalar
 
+0. Detectar el sistema operativo. En **Windows** seguir `docs/06-windows.md` y usar `powershell -ExecutionPolicy Bypass -File .\install.ps1` (con `-DryRun` primero). En macOS/Linux usar `install.sh`. Los tokens en Windows van en variables de entorno de usuario (`SONAR_TOKEN`, `JIRA_API_TOKEN`), no en el llavero de macOS.
 1. Ejecutar `./install.sh --dry-run` y mostrarle al usuario el resumen (cuántos elementos y a qué carpetas va).
 2. Ejecutar `./install.sh` (sin `--force`). Si hay archivos existentes que se saltearon, listarlos y preguntar si quiere pisarlos con `--force` (deja backup en `~/.kiro/.gb-backup-<fecha>`).
 3. Nunca modificar ni borrar la configuración personal del usuario (su memoria, lecciones, persona, `settings/mcp.json`) ni tocar tokens existentes.

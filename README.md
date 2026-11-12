@@ -16,7 +16,9 @@ Configuración compartida de **buenas prácticas de desarrollo en Gestión Biene
 
 Listo: desde ese momento, cuando pidas una HU por su clave Jira (por ejemplo `GD929-1234`), Kiro sigue el flujo del equipo.
 
-Instalación manual, si preferís:
+**Windows:** Kiro detecta el sistema y usa `install.ps1`. Guía y diferencias en [docs/06-windows.md](docs/06-windows.md).
+
+Instalación manual (macOS/Linux), si preferís:
 
 ```bash
 git clone https://github.com/andersondamasolugo/workflow-kirocrew.git
@@ -60,7 +62,7 @@ Reglas que aplica siempre:
 | `dev-flows/` | Scripts de Sonar local, workflows multi-agente y plantillas |
 | `templates/` | Plantilla del pie de PR |
 | `docs/` | Guías detalladas |
-| `install.sh` | Instalador a `~/.kiro` |
+| `install.sh` / `install.ps1` | Instaladores a `~/.kiro` (macOS/Linux y Windows) |
 | `scripts/check-secrets.sh` | Chequeo de secretos y datos personales antes de cada commit |
 
 ## Documentación
@@ -70,7 +72,8 @@ Reglas que aplica siempre:
 3. [Sonar local](docs/03-sonar-local.md)
 4. [Aprendizajes de PR](docs/04-aprendizajes-pr.md)
 5. [Onboarding y configuración local](docs/05-onboarding.md)
-6. Apoyo: [pase de HU a master](docs/guia-pase-hu-a-master.md), [flujo de ramas Git](docs/guia-git-flujo-ramas.md), [prompt para HU CRUD](docs/prompt-hu-crud-db-be-fe.md)
+6. [Guía para Windows](docs/06-windows.md)
+7. Apoyo: [pase de HU a master](docs/guia-pase-hu-a-master.md), [flujo de ramas Git](docs/guia-git-flujo-ramas.md), [prompt para HU CRUD](docs/prompt-hu-crud-db-be-fe.md)
 
 ## Qué debe configurar cada persona
 
@@ -92,5 +95,7 @@ Detalle en [docs/05-onboarding.md](docs/05-onboarding.md).
 - Los aprendizajes nuevos van en `skills/learnings/<nombre>/SKILL.md` con síntoma, causa raíz, procedimiento y qué NO hacer.
 
 ## Créditos y licencias
+
+Contenido propio bajo licencia [MIT](LICENSE). Historial de cambios en [CHANGELOG.md](CHANGELOG.md).
 
 Las skills `chained-pr`, `work-unit-commits`, `judgment-day`, `rdd-defect-workflow`, `comment-writer`, `cognitive-doc-design`, `skill-creator`, `skill-improver` y `systemic-issue-triage` provienen del proyecto Gentle AI y conservan su autoría y licencia originales (ver el frontmatter de cada `SKILL.md`).

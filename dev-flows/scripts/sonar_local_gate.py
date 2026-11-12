@@ -142,8 +142,9 @@ def find_scanner() -> str:
     on_path = shutil.which("sonar-scanner")
     if on_path:
         return on_path
-    for candidate in sorted(SCANNER_FALLBACK.glob("sonar-scanner-*/bin/sonar-scanner")):
-        return str(candidate)
+    for pattern in ("sonar-scanner-*/bin/sonar-scanner", "sonar-scanner-*/bin/sonar-scanner.bat"):
+        for candidate in sorted(SCANNER_FALLBACK.glob(pattern)):
+            return str(candidate)
     return ""
 
 
@@ -154,7 +155,7 @@ def run_scan(repo: Path, token: str) -> str:
         skip("sonar-scanner not found on PATH or under ~/tools")
     env = dict(os.environ)
     env["SONAR_TOKEN"] = token
-    if not env.get("JAVA_HOME"):
+    if not env.get("JAVA_HOME") and Path("/usr/libexec/java_home").exists():
         java_home = subprocess.run(["/usr/libexec/java_home", "-v", "17"],
                                    capture_output=True, text=True, check=False)
         if java_home.returncode == 0:
