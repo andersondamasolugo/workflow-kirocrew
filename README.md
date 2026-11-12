@@ -28,6 +28,8 @@ cd workflow-kirocrew
 ./install.sh --force     # pisar, con backup en ~/.kiro/.gb-backup-<fecha>
 ```
 
+Si algo falla al instalar, Kiro prepara un reporte con los datos sensibles redactados, te lo muestra y, con tu OK, abre un issue en este repo (etiqueta `install-failure`) para repararlo después.
+
 ## Qué te cambia en el día a día
 
 Al pedir una HU, el router (`steering/dev-flow-router.md`) lo ordena todo:
@@ -63,6 +65,7 @@ Reglas que aplica siempre:
 | `templates/` | Plantilla del pie de PR |
 | `docs/` | Guías detalladas |
 | `install.sh` / `install.ps1` | Instaladores a `~/.kiro` (macOS/Linux y Windows) |
+| `scripts/report_install_issue.py` | Genera (y con tu OK crea) el issue de una instalación fallida, con datos redactados |
 | `scripts/check-secrets.sh` | Chequeo de secretos y datos personales antes de cada commit |
 
 ## Documentación

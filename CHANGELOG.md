@@ -7,6 +7,15 @@ y este proyecto adhiere a [Versionamiento Semántico](https://semver.org/lang/es
 
 ## [No publicado]
 
+## [0.0.2] - 2026-11-12
+
+### Agregado
+- Se agregó el reporte automático de fallos de instalación: `scripts/report_install_issue.py` redacta tokens, correos, usuario y rutas, y con autorización del usuario crea un issue con la etiqueta `install-failure` (o imprime un link pre-llenado si `gh` no está disponible).
+- Se agregó la plantilla de issue `install-failure` y la sección "Si algo falla durante la instalación" en `AGENTS.md`.
+
+### Cambiado
+- Los instaladores `install.sh` e `install.ps1` ahora indican cómo reportar el fallo.
+
 ## [0.0.1] - 2026-11-12
 
 ### Agregado

@@ -14,6 +14,8 @@ for arg in "$@"; do
   esac
 done
 
+trap 'echo "Install failed. To report it: python3 scripts/report_install_issue.py --step install.sh --log <log-file> (see AGENTS.md)" >&2' ERR
+
 BACKUP="$KIRO/.gb-backup-$(date +%Y%m%d-%H%M%S)"
 COPIED=0; SKIPPED=0
 

@@ -3,6 +3,11 @@
 # If scripts are blocked: powershell -ExecutionPolicy Bypass -File .\install.ps1
 param([switch]$DryRun, [switch]$Force)
 $ErrorActionPreference = 'Stop'
+trap {
+    Write-Host "Install failed: $($_.Exception.Message)"
+    Write-Host 'To report it: python scripts\report_install_issue.py --step install.ps1 --log <log-file> (see AGENTS.md)'
+    break
+}
 
 $Src = $PSScriptRoot
 $Kiro = if ($env:KIRO_HOME) { $env:KIRO_HOME } else { Join-Path $env:USERPROFILE '.kiro' }

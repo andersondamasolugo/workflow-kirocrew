@@ -34,6 +34,17 @@ Si el usuario pega una credencial viva en el chat, avisarle que quedó expuesta,
 2. Avisar que los agentes, skills y steering se cargan al **iniciar una sesión nueva**: las sesiones ya abiertas no los ven.
 3. Entregar un resumen corto: qué se instaló, qué falta configurar y cómo arrancar (pedir una HU por su clave Jira; el router corre `flow-po` primero).
 
+## Si algo falla durante la instalación
+
+No lo ocultes ni reintentes en bucle. Seguí estos pasos para dejar un issue que permita reparar el kit:
+
+1. Guardá la salida del comando que falló en un archivo temporal (por ejemplo `install.log`). Nunca incluyas el contenido de archivos de credenciales.
+2. Generá el reporte **sin enviarlo**: `python3 scripts/report_install_issue.py --step "<comando>" --log install.log` (en Windows: `python scripts\report_install_issue.py ...`). El script redacta tokens, correos, el nombre de usuario y la ruta del home.
+3. Mostrale al usuario el texto completo del reporte y **pedile su OK** antes de publicarlo: el repo es público y el issue lo ve cualquiera.
+4. Con el OK, repetí el comando agregando `--submit`. Crea el issue en https://github.com/andersondamasolugo/workflow-kirocrew/issues con la etiqueta `install-failure` (evita duplicados por título). Si `gh` no está instalado o autenticado, el script imprime un link pre-llenado para que el usuario lo abra en el navegador.
+5. Pasale al usuario el link del issue y continuá con lo que sí se pudo instalar; indicá claramente qué quedó pendiente.
+6. Si el usuario no autoriza el envío, no publiques nada y dejá el reporte en un archivo local para que lo comparta él.
+
 ## Reglas al trabajar con este kit
 
 - Seguir `steering/dev-flow-router.md`: nunca commit ni push sin autorización explícita del usuario.
