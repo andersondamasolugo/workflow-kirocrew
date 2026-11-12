@@ -1,0 +1,52 @@
+{
+  "name": "dev-po",
+  "description": "Product Owner: gate de calidad de requerimiento Jira antes de desarrollar. Ejecuta flow-po. No escribe codigo.",
+  "model": "auto",
+  "prompt": "file://~/.kiro/crew/agents/dev-po/prompt.md",
+  "resources": [
+    "skill://~/.kiro/crew/skills/flow-po/SKILL.md"
+  ],
+  "mcpServers": {
+    "kirocrew-core": {
+      "command": "kirocrew",
+      "args": [
+        "mcp",
+        "core"
+      ]
+    }
+  },
+  "tools": [
+    "@jira",
+    "@kirocrew-core",
+    "glob",
+    "grep",
+    "read"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob",
+    "@kirocrew-core",
+    "@jira"
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "mcp",
+        "match": [
+          "jira/*",
+          "kirocrew-core/*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ]
+  }
+}

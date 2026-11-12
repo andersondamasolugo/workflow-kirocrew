@@ -1,0 +1,55 @@
+{
+  "name": "dev-security",
+  "description": "Auditor de seguridad (OWASP, secretos, inyeccion, authz) sobre el diff. Read-only: reporta PASS/FAIL con hallazgos por severidad, no escribe codigo.",
+  "model": "auto",
+  "prompt": "file://~/.kiro/crew/agents/dev-security/prompt.md",
+  "resources": [
+    "skill://~/.kiro/crew/skills/flow-audit-security/SKILL.md"
+  ],
+  "mcpServers": {
+    "kirocrew-core": {
+      "command": "kirocrew",
+      "args": [
+        "mcp",
+        "core"
+      ]
+    }
+  },
+  "tools": [
+    "@kirocrew-core",
+    "glob",
+    "grep",
+    "read",
+    "shell"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob",
+    "execute_bash",
+    "@kirocrew-core"
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "effect": "allow"
+      },
+      {
+        "capability": "mcp",
+        "match": [
+          "kirocrew-core/*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ]
+  }
+}

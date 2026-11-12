@@ -1,0 +1,61 @@
+{
+  "name": "dev-flow-architect",
+  "description": "Meta-agente: crea agentes dev-*, crea/cambia flujos flow-* y los audita, siguiendo el estandar nativo. Ejecuta agent-authoring. Apoyo para mantener el sistema de flujos.",
+  "model": "auto",
+  "prompt": "file://~/.kiro/crew/agents/dev-flow-architect/prompt.md",
+  "resources": [
+    "skill://~/.kiro/crew/skills/agent-authoring/SKILL.md"
+  ],
+  "mcpServers": {
+    "kirocrew-core": {
+      "command": "kirocrew",
+      "args": [
+        "mcp",
+        "core"
+      ]
+    }
+  },
+  "tools": [
+    "@kirocrew-core",
+    "glob",
+    "grep",
+    "read",
+    "shell",
+    "write"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "grep",
+    "glob",
+    "@kirocrew-core"
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "effect": "allow"
+      },
+      {
+        "capability": "shell",
+        "effect": "allow"
+      },
+      {
+        "capability": "mcp",
+        "match": [
+          "kirocrew-core/*"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
+      }
+    ]
+  }
+}
