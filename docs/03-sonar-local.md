@@ -20,7 +20,7 @@ Guardar el token en el llavero, **nunca** en un archivo del repo:
 ```bash
 # macOS
 security add-generic-password -a "$USER" -s sonar-local-token -w
-# (te pide el valor por prompt; pegalo ahí)
+# (te pide el valor por prompt; pégalo ahí)
 ```
 
 Alternativa: variable de entorno `SONAR_TOKEN` (el script la lee primero).

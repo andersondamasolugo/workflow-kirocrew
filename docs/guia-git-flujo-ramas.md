@@ -159,8 +159,8 @@ git worktree add ../repo-GD929-BBBB feature/GD929-BBBB   # HU B en otra carpeta
 ```
 
 Cada carpeta es un árbol de trabajo independiente. El agente A trabaja en la
-suya, el agente B en la suya. **No se pisan.** (Esto es justo lo que usé para
-crear las ramas `-to-master` sin tocar tu WIP sucio del FE.)
+suya, el agente B en la suya. **No se pisan.** (Esto es justo lo que se usó para
+crear las ramas `-to-master` sin tocar el WIP sucio del FE.)
 
 ### 5.2 Evita que dos HU toquen el mismo archivo compartido a la vez
 
@@ -242,17 +242,17 @@ editó en uno de los ambientes, ese PR chocará y vuelves al cherry-pick.
 
 ### Por qué a mí (GD929-2732) me chocó y a él no
 
-| | Compañero (#1404/#1405) | GD929-2732 (mío) |
+| | Otra HU (#1404/#1405) | GD929-2732 (este caso) |
 |---|---|---|
 | De dónde cortó | punto ancestro de develop **y** stage (release reciente) | de **master**, 208 commits detrás de develop |
-| Archivos | nadie más los tocó desde el corte | toqué CHANGELOG/enum que otra HU ya editó |
+| Archivos | nadie más los tocó desde el corte | se tocó CHANGELOG/enum que otra HU ya editó |
 
-Él cortó **reciente y compartido**; yo corté de master (lejísimos). Por eso su
-rama es compatible con ambos ambientes y la mía no.
+La otra HU cortó **reciente y compartido**; esta se cortó de master (muy atrás). Por eso la
+rama de la otra HU es compatible con ambos ambientes y esta no.
 
 ### Cuándo usar cada técnica
 
-- **HU NUEVA** → técnica del compañero: cortar del punto común develop/stage,
+- **HU NUEVA** → técnica de la otra HU: cortar del punto común develop/stage,
   abrir 2 PR con la misma rama. Es lo ideal, sin cherry-pick.
 - **HU que YA está en develop** (como GD929-2732) → ya no puedes abrir 2 PR de
   una rama; el código ya avanzó a develop. Para el pase a stage cortas de
@@ -289,7 +289,7 @@ NO genera choques, porque el contenido es el mismo que el destino espera.
 ## 6. Checklist pro antes de abrir un PR
 
 ```
-[ ] ¿De qué rama corté? → esa es la única a la que mergea limpio.
+[ ] ¿De qué rama se cortó? → esa es la única a la que mergea limpio.
 [ ] ¿El PR apunta al base correcto? (rama -to-master → base master, NO develop)
 [ ] ¿El diff muestra SOLO mi HU? (git diff --stat origin/<base>..HEAD)
 [ ] ¿Cero archivos de otras HU? (grep de tickets ajenos en el diff)

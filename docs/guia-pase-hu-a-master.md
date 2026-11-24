@@ -4,15 +4,15 @@ Para promover una HU `<HU>` a master sin arrastrar trabajo de otros compañeros,
 NO cortes el tag desde la punta de stage (eso mete todo el release). En su lugar:
 
 ## Qué hacer
-1. **Cortá una rama LIMPIA desde `master`** (no desde un tag, no desde stage).
-2. **Consolidá TODO el desarrollo de la HU en UN SOLO commit** sobre esa rama.
+1. **Corta una rama LIMPIA desde `master`** (no desde un tag, no desde stage).
+2. **Consolida TODO el desarrollo de la HU en UN SOLO commit** sobre esa rama.
 3. **El desarrollador la promueve manualmente** por los ambientes (develop → stage → master),
    porque es su HU y conoce el alcance.
 
 Así master recibe solo la HU, con historial limpio (1 commit), sin SHAs sueltos ni
 commits de otros, y sin depender del corte de release del equipo.
 
-## Comandos (reemplazá <HU>, <repo> y los SHAs)
+## Comandos (reemplaza <HU>, <repo> y los SHAs)
 
 ```bash
 git fetch origin
@@ -46,7 +46,7 @@ por ambiente a su ritmo: develop → stage → master, verificando CI en cada un
 ## Reglas clave
 - La rama **viene de master**, no de un tag ni de stage.
 - **1 solo commit** con todo el desarrollo de la HU.
-- **Nada de otros compañeros**: verificá con `git diff --name-only origin/master` que solo
+- **Nada de otros compañeros**: verifica con `git diff --name-only origin/master` que solo
   aparezcan archivos de la HU.
 - Antes de pushear un fix a un PR ya abierto: `gh pr view <N> --json state,mergedAt`.
   OPEN = misma rama; MERGED = rama fresca + PR nuevo (si no, el commit queda huérfano).

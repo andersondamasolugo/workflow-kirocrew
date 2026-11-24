@@ -6,13 +6,13 @@ Configuración compartida de **buenas prácticas de desarrollo en Gestión Biene
 
 ## Cómo se usa (30 segundos)
 
-1. Abrí un chat nuevo en **Kiro Crew**.
-2. Pegá este mensaje:
+1. Abre un chat nuevo en **Kiro Crew**.
+2. Pega este mensaje:
 
-   > Instalá y configurá el workflow de este repo: https://github.com/andersondamasolugo/workflow-kirocrew.git (seguí las instrucciones de `AGENTS.md`).
+   > Instala y configura el workflow de este repo: https://github.com/andersondamasolugo/workflow-kirocrew.git (sigue las instrucciones de `AGENTS.md`).
 
-3. Kiro clona el repo, valida que no haya secretos, instala los agentes, skills y reglas en `~/.kiro`, y te guía con lo único que tenés que poner vos (tokens de Jira y Sonar, JFrog, identidad de git).
-4. **Abrí una sesión nueva**. Los agentes, skills y reglas se cargan al iniciar la sesión; las ya abiertas no los ven.
+3. Kiro clona el repo, valida que no haya secretos, instala los agentes, skills y reglas en `~/.kiro`, y te guía con lo único que tienes que poner tú (tokens de Jira y Sonar, JFrog, identidad de git).
+4. **Abre una sesión nueva**. Los agentes, skills y reglas se cargan al iniciar la sesión; las ya abiertas no los ven.
 
 Listo: desde ese momento, cuando pidas una HU por su clave Jira (por ejemplo `GD929-1234`), Kiro sigue el flujo del equipo.
 
@@ -29,6 +29,8 @@ cd workflow-kirocrew
 ```
 
 Si algo falla al instalar, Kiro prepara un reporte con los datos sensibles redactados, te lo muestra y, con tu OK, abre un issue en este repo (etiqueta `install-failure`) para repararlo después.
+
+**Recomendado, no obligatorio:** si manejas varios repositorios, Kiro te propone crear un *workspace* (una carpeta que los agrupa, como en el IDE) con las reglas del proyecto. Ver [docs/07-workspace.md](docs/07-workspace.md).
 
 ## Qué te cambia en el día a día
 
@@ -63,9 +65,11 @@ Reglas que aplica siempre:
 | `steering/` | Reglas permanentes: stack aprobado, seguridad, estilo, arquitectura, changelog, observabilidad, Angular y Java |
 | `dev-flows/` | Scripts de Sonar local, workflows multi-agente y plantillas |
 | `templates/` | Plantilla del pie de PR |
+| `workspace-template/` | Plantilla del workspace multi-repositorio (opcional) |
 | `docs/` | Guías detalladas |
 | `install.sh` / `install.ps1` | Instaladores a `~/.kiro` (macOS/Linux y Windows) |
 | `scripts/report_install_issue.py` | Genera (y con tu OK crea) el issue de una instalación fallida, con datos redactados |
+| `scripts/new-workspace.sh` / `.ps1` | Crean un workspace con reglas y lista de repositorios |
 | `scripts/check-secrets.sh` | Chequeo de secretos y datos personales antes de cada commit |
 
 ## Documentación
@@ -76,7 +80,8 @@ Reglas que aplica siempre:
 4. [Aprendizajes de PR](docs/04-aprendizajes-pr.md)
 5. [Onboarding y configuración local](docs/05-onboarding.md)
 6. [Guía para Windows](docs/06-windows.md)
-7. Apoyo: [pase de HU a master](docs/guia-pase-hu-a-master.md), [flujo de ramas Git](docs/guia-git-flujo-ramas.md), [prompt para HU CRUD](docs/prompt-hu-crud-db-be-fe.md)
+7. [Trabajar por workspace](docs/07-workspace.md)
+8. Apoyo: [pase de HU a master](docs/guia-pase-hu-a-master.md), [flujo de ramas Git](docs/guia-git-flujo-ramas.md), [prompt para HU CRUD](docs/prompt-hu-crud-db-be-fe.md)
 
 ## Qué debe configurar cada persona
 

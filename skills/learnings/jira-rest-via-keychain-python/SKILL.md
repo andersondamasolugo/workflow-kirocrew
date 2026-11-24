@@ -41,4 +41,4 @@ El kit trae los dos pasos ya resueltos y portables:
 - `dev-flows/scripts/read_secret.py <servicio> <VARIABLE>`: busca primero la variable de entorno y luego el almacén del sistema.
 - `dev-flows/scripts/jira_read.py GD929-1234` (o `--jql "..."`): valida `myself`, trae el issue y aplana el ADF. Requiere `JIRA_SITE` (por ejemplo `miempresa.atlassian.net`) y `JIRA_EMAIL`. Usa solo la librería estándar de Python.
 
-En Windows, usá `python` en lugar de `python3` y definí las variables con `[Environment]::SetEnvironmentVariable("JIRA_API_TOKEN", <valor>, "User")` desde tu propia terminal (nunca en el chat); reiniciá Kiro Crew para que la herede.
+En Windows, usa `python` en lugar de `python3` y define las variables con `[Environment]::SetEnvironmentVariable("JIRA_API_TOKEN", <valor>, "User")` desde tu propia terminal (nunca en el chat); reinicia Kiro Crew para que la herede.

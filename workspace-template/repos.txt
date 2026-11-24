@@ -1,0 +1,5 @@
+# Repositorios del workspace. Una línea por repositorio: <url-git> [nombre-de-carpeta]
+# Las líneas que empiezan con # se ignoran. Si omites el nombre, se usa el del repositorio.
+# Ejemplo:
+# https://github.com/<organizacion>/<repositorio-backend>.git
+# https://github.com/<organizacion>/<repositorio-frontend>.git frontend

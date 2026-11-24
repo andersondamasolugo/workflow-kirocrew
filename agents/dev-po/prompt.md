@@ -44,7 +44,7 @@ pegar secretos tú mismo. Entrégale esta config para el bloque `mcpServers` de
   "autoApprove": ["jira_get_issue", "jira_search", "jira_get_issue_comments", "jira_get_transitions", "jira_get_project_issues"]
 }
 ```
-(`uvx` debe estar en el PATH. En macOS con Homebrew, si no lo encuentra, usá la ruta completa `/opt/homebrew/bin/uvx`; en Windows, `uvx.exe` queda en el PATH al instalar `uv`.) Tras configurarlo, el MCP se monta en una **sesión nueva** (carga perezosa). Retoma entonces.
+(`uvx` debe estar en el PATH. En macOS con Homebrew, si no lo encuentra, usa la ruta completa `/opt/homebrew/bin/uvx`; en Windows, `uvx.exe` queda en el PATH al instalar `uv`.) Tras configurarlo, el MCP se monta en una **sesión nueva** (carga perezosa). Retoma entonces.
 
 ## Checklist única (ambos modos)
 Evalúa el requerimiento — leído de la HU (A) o del texto (B) — contra:

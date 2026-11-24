@@ -19,25 +19,25 @@ Destinos (puede variar según tu instalación de Kiro Crew):
 | `steering/` | `~/.kiro/steering/` |
 | `dev-flows/` | `~/.kiro/crew/dev-flows/` |
 
-## 2. Lo que debés configurar vos (nada de esto viaja en el repo)
+## 2. Lo que debes configurar tú (nada de esto viaja en el repo)
 
 | Qué | Dónde | Notas |
 |-----|-------|-------|
 | Token de Jira | Llavero (`jira-api-token`) o variable `JIRA_API_TOKEN` | Generalo en tu perfil de Atlassian. Ver `skills/learnings/jira-rest-via-keychain-python` |
-| Correo de Jira | Tu config local | Reemplazá `<tu-correo>@segurosbolivar.com` en el bloque MCP de `agents/dev-po/prompt.md` solo en tu copia instalada |
+| Correo de Jira | Tu config local | Reemplaza `<tu-correo>@segurosbolivar.com` en el bloque MCP de `agents/dev-po/prompt.md` solo en tu copia instalada |
 | Token de Sonar local | Llavero (`sonar-local-token`) | User Token `squ_`. Ver `docs/03-sonar-local.md` |
 | Credenciales JFrog | `~/.gradle/gradle.properties`, `.npmrc` | Necesarias para que `gradlew` resuelva dependencias desde terminal |
 | Credenciales de BD / Cognito / env local | `env.local` de cada repo (no versionado) | Nunca las pegues en el chat ni en el repo |
-| Git identity | `git config user.name / user.email` | Usá tu identidad real |
+| Git identity | `git config user.name / user.email` | Usa tu identidad real |
 
-Si pegás una credencial viva en un chat, revocala y generá otra.
+Si pegas una credencial viva en un chat, revócala y genera otra.
 
 ## 3. Primer uso
 
-1. Abrí el repo de trabajo (FE, BE o DB) y pedí la HU por su clave Jira: el router corre `flow-po` primero.
+1. Abre el repo de trabajo (FE, BE o DB) y pide la HU por su clave Jira: el router corre `flow-po` primero.
 2. Si es APROBADA, se encadena el flujo del stack (`flow-backend`, `flow-frontend`, …).
-3. Antes del primer commit, montá Sonar local (`docs/03-sonar-local.md`).
-4. Al abrir el PR, usá `templates/pr-footer.md`.
+3. Antes del primer commit, monta Sonar local (`docs/03-sonar-local.md`).
+4. Al abrir el PR, usa `templates/pr-footer.md`.
 
 ## 4. Convenciones del kit
 

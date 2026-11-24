@@ -19,7 +19,7 @@ Valida por **SHA LITERAL y genealogía**, NO por contenido byte-idéntico. Exige
 1. **Diagnostica cuál condición falla.** Tras `git fetch origin --tags -q`:
    - Tipo de tag: `git ls-remote origin 'refs/tags/vX*'`. Un tag ligero devuelve UNA línea (ref=commit). Uno anotado devuelve DOS (ref=objeto-tag + línea `^{}`=commit). Compara con un tag que SÍ pasó.
    - SHA en ambientes previos: NO confíes en `git merge-base --is-ancestor` (da falso positivo porque considera contenido/árbol). Usa SHA literal: `git rev-list origin/stage | grep -q "^<sha40>$"` y lo mismo para develop. Haz `git fetch origin` antes y consulta el HEAD autoritativo con `git ls-remote origin refs/heads/stage` porque el `origin/stage` local puede estar desactualizado.
-2. **Si el SHA aislado no está en develop/stage:** mergeá la MISMA rama `vX-to-master` (mismo commit/SHA) por PR a develop y luego a stage. Eso inyecta el SHA literal en ambos ambientes sin re-cherry-pickear. Verifica de nuevo con `git rev-list ... | grep`.
+2. **Si el SHA aislado no está en develop/stage:** fusiona la MISMA rama `vX-to-master` (mismo commit/SHA) por PR a develop y luego a stage. Eso inyecta el SHA literal en ambos ambientes sin re-cherry-pickear. Verifica de nuevo con `git rev-list ... | grep`.
 3. **Si el tag es anotado:** recréalo ligero sobre el mismo commit:
    - `git tag -d vX`
    - `git tag vX <commit-sha>`  (SIN `-a`)

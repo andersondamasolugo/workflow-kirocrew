@@ -36,7 +36,7 @@ Cuando el usuario pide grabar un recorrido E2E con video/screenshots publicables
 - Si el usuario pega credenciales en el chat, advertir que quedaron en el transcript y recomendar rotarlas; no repetir la contraseña en texto después.
 
 ## Equivalentes en Windows (PowerShell)
-- Paso 3 (socket path): en macOS se usa `/tmp/pws`. En Windows creá una ruta corta propia, por ejemplo `New-Item -ItemType Directory -Force C:\pws | Out-Null; $env:PWTEST_SOCKETS_DIR = "C:\pws"`. Si `open` falla por la longitud del socket, es el mismo problema.
+- Paso 3 (socket path): en macOS se usa `/tmp/pws`. En Windows crea una ruta corta propia, por ejemplo `New-Item -ItemType Directory -Force C:\pws | Out-Null; $env:PWTEST_SOCKETS_DIR = "C:\pws"`. Si `open` falla por la longitud del socket, es el mismo problema.
 - Variable de salida: `$env:PLAYWRIGHT_MCP_OUTPUT_DIR` en lugar de `$PLAYWRIGHT_MCP_OUTPUT_DIR`; `New-Item -ItemType Directory -Force` en lugar de `mkdir -p`; `Start-Sleep -Seconds 2` en lugar de `sleep 2`; `Get-ChildItem *.webm, *.png` en lugar de `ls -lht`.
-- El script `scripts/make_playwright_cli_config.py` es portable (solo escribe un JSON). Corrélo con `python` en Windows.
-- Los argumentos `--no-sandbox`, `--disable-gpu` y `--disable-dev-shm-usage` y el modo headless se mantienen; no se verificó si en Windows son necesarios. Probá sin ellos primero y agregalos solo si Chrome crashea con `Target crashed`.
+- El script `scripts/make_playwright_cli_config.py` es portable (solo escribe un JSON). Córrelo con `python` en Windows.
+- Los argumentos `--no-sandbox`, `--disable-gpu` y `--disable-dev-shm-usage` y el modo headless se mantienen; no se verificó si en Windows son necesarios. Prueba sin ellos primero y agrégalos solo si Chrome crashea con `Target crashed`.

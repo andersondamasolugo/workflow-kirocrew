@@ -7,6 +7,15 @@ y este proyecto adhiere a [Versionamiento Semántico](https://semver.org/lang/es
 
 ## [No publicado]
 
+## [0.0.4] - 2026-11-24
+
+### Agregado
+- Se agregó el trabajo por workspace (recomendado, opcional): plantilla `workspace-template/`, scripts `scripts/new-workspace.sh` y `scripts/new-workspace.ps1` y la guía `docs/07-workspace.md`. `AGENTS.md` lo recomienda una sola vez y no lo impone.
+- Se agregó la regla `rule-communication-style.md` (siempre activa) que fija el español neutro y un tono profesional como base del equipo.
+
+### Cambiado
+- Se neutralizó el español de las instrucciones, guías y aprendizajes del kit: se reemplazó el voseo por tuteo y se quitaron referencias en primera persona de la guía de ramas.
+
 ## [0.0.3] - 2026-11-12
 
 ### Agregado
